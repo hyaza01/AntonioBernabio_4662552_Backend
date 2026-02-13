@@ -1,0 +1,177 @@
+ROTEIRO DE COMMITS (COPIAR E COLAR)
+Projeto: AntonioBernabio_4662552_Backend
+Remote: https://github.com/hyaza01/AntonioBernabio_4662552_Backend.git
+Branch: main
+
+IMPORTANTE
+- A pasta de apoio nao deve subir: evolucao_commits/
+- O PDF do enunciado tambem nao deve subir.
+- Antes de cada commit, confira com: git status --short
+
+=====================================================
+0) COMANDOS BASE (rodar 1 vez por sessao)
+=====================================================
+Set-Location "c:\Users\AntônioBernabio\Documents\trabalho final uninter"
+git checkout main
+git pull origin main
+
+=====================================================
+1) CHECKPOINT 15% - Base funcional
+Mensagem:
+chore: estrutura inicial do backend com FastAPI e healthcheck
+
+Pastas/arquivos para levar:
+- requirements.txt
+- .env.example
+- app/main.py
+- app/core/config.py
+- app/db/base.py
+- app/db/session.py
+- app/__init__.py
+- app/api/__init__.py
+- app/api/routes/__init__.py
+
+Comandos:
+git add requirements.txt .env.example app/main.py app/core/config.py app/db/base.py app/db/session.py app/__init__.py app/api/__init__.py app/api/routes/__init__.py
+git commit -m "chore: estrutura inicial do backend com FastAPI e healthcheck"
+git push origin main
+
+=====================================================
+2) CHECKPOINT 25% - Modelagem e persistencia
+Mensagem:
+feat: adicionar entidades principais e persistência SQLite
+
+Pastas/arquivos para levar:
+- app/domain/models.py
+- app/db/init_db.py
+
+Comandos:
+git add app/domain/models.py app/db/init_db.py
+git commit -m "feat: adicionar entidades principais e persistência SQLite"
+git push origin main
+
+=====================================================
+3) CHECKPOINT 35% - Auth e seguranca
+Mensagem:
+feat: implementar login JWT, hash de senha e controle por roles
+
+Pastas/arquivos para levar:
+- app/core/security.py
+- app/api/deps.py
+- app/schemas.py
+- app/api/routes/auth.py
+
+Comandos:
+git add app/core/security.py app/api/deps.py app/schemas.py app/api/routes/auth.py
+git commit -m "feat: implementar login JWT, hash de senha e controle por roles"
+git push origin main
+
+=====================================================
+4) CHECKPOINT 45% - Catalogo e estoque
+Mensagem:
+feat: endpoints de unidades, produtos e movimentação de estoque
+
+Pastas/arquivos para levar:
+- app/api/routes/catalogo.py
+
+Comandos:
+git add app/api/routes/catalogo.py
+git commit -m "feat: endpoints de unidades, produtos e movimentação de estoque"
+git push origin main
+
+=====================================================
+5) CHECKPOINT 60% - Pedidos multicanal
+Mensagem:
+feat: criação/listagem de pedidos com canalPedido obrigatório
+
+Pastas/arquivos para levar:
+- app/application/pedido_service.py
+- app/api/routes/pedidos.py
+
+Comandos:
+git add app/application/pedido_service.py app/api/routes/pedidos.py
+git commit -m "feat: criação/listagem de pedidos com canalPedido obrigatório"
+git push origin main
+
+=====================================================
+6) CHECKPOINT 72% - Status e fidelidade
+Mensagem:
+feat: transições de status do pedido e resgate de fidelidade
+
+Pastas/arquivos para levar:
+- app/api/routes/fidelidade.py
+
+Comandos:
+git add app/api/routes/fidelidade.py
+git commit -m "feat: transições de status do pedido e resgate de fidelidade"
+git push origin main
+
+=====================================================
+7) CHECKPOINT 82% - Erros e auditoria
+Mensagem:
+feat: padronizar erros JSON e adicionar logs de auditoria
+
+Pastas/arquivos para levar:
+- app/core/errors.py
+- app/infrastructure/audit.py
+
+Comandos:
+git add app/core/errors.py app/infrastructure/audit.py
+git commit -m "feat: padronizar erros JSON e adicionar logs de auditoria"
+git push origin main
+
+=====================================================
+8) CHECKPOINT 90% - README e configuracoes
+Mensagem:
+docs: adicionar README completo e instruções de execução/deploy
+
+Pastas/arquivos para levar:
+- README.md
+- .gitignore
+
+Comandos:
+git add README.md .gitignore
+git commit -m "docs: adicionar README completo e instruções de execução/deploy"
+git push origin main
+
+=====================================================
+9) CHECKPOINT 97% - Testes e evidencias
+Mensagem:
+docs: adicionar coleção Postman e plano de testes
+
+Pastas/arquivos para levar:
+- postman/Projeto_BackEnd_UNINTER.postman_collection.json
+- postman/Projeto_BackEnd_UNINTER.postman_environment.json
+- plano_testes_tabela.md
+- explicacao_construcao_backend.txt
+
+Comandos:
+git add postman/Projeto_BackEnd_UNINTER.postman_collection.json postman/Projeto_BackEnd_UNINTER.postman_environment.json plano_testes_tabela.md explicacao_construcao_backend.txt
+git commit -m "docs: adicionar coleção Postman e plano de testes"
+git push origin main
+
+=====================================================
+10) CHECKPOINT 100% - Final
+Mensagem:
+release: versão final 100% funcional do projeto backend
+
+Pastas/arquivos para levar:
+- ajustes finais que faltarem (se houver)
+
+Comandos (opcao 1 - quando houver alteracoes):
+git add .
+git commit -m "release: versão final 100% funcional do projeto backend"
+git push origin main
+
+Comandos (opcao 2 - se nao houver nada novo para commitar):
+git status --short
+git log --oneline -n 15
+
+=====================================================
+COMANDO RAPIDO PARA CONFERIR TUDO
+=====================================================
+git status --short
+git log --oneline -n 20
+git remote -v
+
+Se aparecer somente o PDF como nao rastreado, esta ok.

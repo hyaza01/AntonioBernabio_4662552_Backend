@@ -1,0 +1,100 @@
+EXPLICAÇÃO PASSO A PASSO - CONSTRUÇÃO DO PROJETO BACKEND
+
+1) Leitura e análise do roteiro em PDF
+O que foi feito:
+- O documento "Roteiro de Atividade Pratica - 2026 - Projeto Back End.pdf" foi lido e os requisitos obrigatórios foram extraídos.
+Por que foi feito:
+- Para garantir aderência exata ao que a atividade pede e evitar implementar funcionalidades fora do escopo.
+
+2) Definição do stack técnico
+O que foi feito:
+- Foi escolhido FastAPI + SQLAlchemy + SQLite + JWT.
+Por que foi feito:
+- FastAPI fornece Swagger/OpenAPI nativo e acelera a documentação.
+- SQLAlchemy garante persistência real e modelagem robusta.
+- SQLite simplifica execução local para correção.
+- JWT atende o requisito de autenticação por token.
+
+3) Estruturação por camadas
+O que foi feito:
+- O projeto foi separado em camadas:
+  - Domain: modelos e enums do negócio.
+  - Application: regras do fluxo crítico de pedido/pagamento/status.
+  - Infrastructure: auditoria e persistência.
+  - API: rotas, contratos e controle de acesso.
+Por que foi feito:
+- Essa separação reduz acoplamento, melhora manutenção e atende o critério de arquitetura do roteiro.
+
+4) Modelagem do banco e entidades principais
+O que foi feito:
+- Foram criadas entidades para usuários, unidades, produtos, estoque, pedidos, itens, pagamento mock e logs de auditoria.
+Por que foi feito:
+- Essas entidades cobrem o fluxo obrigatório e os requisitos funcionais do estudo de caso.
+
+5) Implementação de segurança e LGPD mínimo técnico
+O que foi feito:
+- Senhas com hash PBKDF2-SHA256.
+- Login com JWT.
+- Controle de permissão por perfil/role.
+- Campo de consentimento LGPD no usuário.
+- Não exposição de hash de senha nos responses.
+Por que foi feito:
+- Atende os critérios obrigatórios de segurança e privacidade exigidos no roteiro.
+
+6) Padrão de erro unificado
+O que foi feito:
+- Foi implementado um formato único de erro JSON para validações e exceções HTTP.
+Por que foi feito:
+- Facilita consumo da API e atende requisito de contrato consistente.
+
+7) Implementação do domínio multicanal
+O que foi feito:
+- O pedido exige campo canalPedido (enum APP, TOTEM, BALCAO, PICKUP, WEB).
+- A listagem de pedidos aceita filtro por canalPedido.
+Por que foi feito:
+- O roteiro define multicanalidade como requisito obrigatório de domínio.
+
+8) Implementação do fluxo crítico (MVP obrigatório)
+O que foi feito:
+- Fluxo A implementado: Pedido -> Pagamento mock -> Atualização de status.
+- Na criação do pedido: valida itens, valida existência de unidade/produto, valida estoque e baixa saldo.
+- No pagamento mock: simula aprovação/recusa e grava payload de requisição/resposta.
+- Status do pedido é atualizado conforme resultado.
+Por que foi feito:
+- Esse fluxo é explicitamente exigido como entrega mínima de funcionamento.
+
+9) Fidelização
+O que foi feito:
+- Pontos são acumulados quando pagamento é aprovado.
+- Endpoint para consultar saldo e endpoint para resgatar pontos.
+Por que foi feito:
+- O programa de fidelização é requisito funcional obrigatório no roteiro.
+
+10) Auditoria de ações sensíveis
+O que foi feito:
+- Foram registrados logs para criação de pedido, processamento de pagamento mock e atualização de status.
+Por que foi feito:
+- Ajuda em rastreabilidade operacional e atende critério de logs/auditoria.
+
+11) Seed inicial para validação rápida
+O que foi feito:
+- Seed automático com usuário admin, unidade, produto e estoque inicial.
+Por que foi feito:
+- Facilita execução imediata pelo corretor, sem etapa manual extensa.
+
+12) Documentação técnica da execução
+O que foi feito:
+- Foi criado README com requisitos, setup, execução, URLs de documentação e resumo de endpoints.
+Por que foi feito:
+- A atividade exige solução reproduzível, com instruções claras para rodar e validar.
+
+13) Resultado final entregue
+- Backend executável localmente.
+- Persistência real em banco.
+- Endpoints REST com Swagger/OpenAPI.
+- Fluxo crítico completo com regras de negócio.
+- Segurança mínima técnica (JWT, hash, roles).
+- Documento TXT explicando o passo a passo e justificativas.
+
+Observação final:
+- Para nota máxima no trabalho acadêmico, ainda é recomendado complementar com DER/diagramas, coleção Postman com 10 cenários e PDF final em ABNT contendo as evidências.
