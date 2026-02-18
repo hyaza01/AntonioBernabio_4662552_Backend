@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+app.db
+*.sqlite3
+evolucao_commits/
+Roteiro de Atividade Pratica - 2026 - Projeto Back End.pdf
+roteiro_commits_copiar_colar.txt
